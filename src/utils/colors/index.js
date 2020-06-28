@@ -20,4 +20,10 @@ export const colors = {
     primary: mainColors.orange1,
     secondary: mainColors.purple1,
   },
+  icon: {
+    primary: mainColors.white1,
+  },
+  border: {
+    primary: mainColors.grey2,
+  },
 };

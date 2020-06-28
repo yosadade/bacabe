@@ -1,21 +1,32 @@
 import React from 'react';
-import {StyleSheet, Text, View} from 'react-native';
+import {StyleSheet, Text, View, StatusBar} from 'react-native';
 import {colors, fonts} from '../../utils';
 import {Button, Gap} from '../../components/atom';
 
 const GetStarted = ({navigation}) => {
   return (
     <View style={styles.page}>
+      <RenderStatusBar />
       <RenderTitle />
       <RenderButton navigation={navigation} />
     </View>
   );
 };
 
+const RenderStatusBar = () => {
+  return (
+    <StatusBar
+      barStyle="light-content"
+      backgroundColor={colors.background.primary}
+      hidden={false}
+    />
+  );
+};
+
 const RenderTitle = () => {
   return (
     <View>
-      <Text style={styles.title}>BACABA</Text>
+      <Text style={styles.title}>Bacaba</Text>
       <Text style={styles.subTitle}>
         Baca berita jadi lebih asik, mudah & fleksibel
       </Text>
