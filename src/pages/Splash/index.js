@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import {StyleSheet, Text, View} from 'react-native';
+import {StyleSheet, Text, View, StatusBar} from 'react-native';
 import {fonts, colors} from '../../utils';
 
 const Splash = ({navigation}) => {
@@ -11,6 +11,25 @@ const Splash = ({navigation}) => {
 
   return (
     <View style={styles.page}>
+      <RenderStatusBar />
+      <RenderLogo />
+    </View>
+  );
+};
+
+const RenderStatusBar = () => {
+  return (
+    <StatusBar
+      barStyle="light-content"
+      backgroundColor={colors.background.primary}
+      hidden={false}
+    />
+  );
+};
+
+const RenderLogo = () => {
+  return (
+    <View>
       <Text style={styles.title}>Bacaba</Text>
       <Text style={styles.subTitle}>Baca berita terupdate terpercaya</Text>
     </View>
@@ -30,6 +49,7 @@ const styles = StyleSheet.create({
     fontSize: 70,
     fontFamily: fonts.primary[800],
     color: colors.text.primary,
+    textAlign: 'center',
   },
   subTitle: {
     fontSize: 20,

@@ -7,7 +7,7 @@ const GetStarted = ({navigation}) => {
   return (
     <View style={styles.page}>
       <RenderStatusBar />
-      <RenderTitle />
+      <RenderLead />
       <RenderButton navigation={navigation} />
     </View>
   );
@@ -23,11 +23,11 @@ const RenderStatusBar = () => {
   );
 };
 
-const RenderTitle = () => {
+const RenderLead = () => {
   return (
     <View>
-      <Text style={styles.title}>Bacaba</Text>
-      <Text style={styles.subTitle}>
+      <Text style={styles.logo}>Bacaba</Text>
+      <Text style={styles.title}>
         Baca berita jadi lebih asik, mudah & fleksibel
       </Text>
     </View>
@@ -41,7 +41,7 @@ const RenderButton = ({navigation}) => {
         title="Get Started"
         onPress={() => navigation.navigate('Login')}
       />
-      <Gap heigh={16} />
+      <Gap height={16} />
       <Button
         title="Sign In"
         type="secondary"
@@ -61,13 +61,13 @@ const styles = StyleSheet.create({
     justifyContent: 'space-around',
     backgroundColor: colors.background.primary,
   },
-  title: {
-    fontSize: 40,
+  logo: {
+    fontSize: 70,
     fontFamily: fonts.primary[600],
     color: colors.text.primary,
     textAlign: 'center',
   },
-  subTitle: {
+  title: {
     fontSize: 25,
     fontFamily: fonts.primary[600],
     color: colors.text.primary,

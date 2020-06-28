@@ -32,11 +32,11 @@ const RenderInput = () => {
   return (
     <View style={styles.input}>
       <Input label="Full Name" />
-      <Gap heigh={24} />
+      <Gap height={24} />
       <Input label="Pekerjaan" />
-      <Gap heigh={24} />
+      <Gap height={24} />
       <Input label="Email Address" />
-      <Gap heigh={24} />
+      <Gap height={24} />
       <Input label="Password" />
     </View>
   );

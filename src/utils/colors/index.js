@@ -1,4 +1,5 @@
 const mainColors = {
+  dark1: '#112340',
   white1: '#FFFFFF',
   black1: '#2B2C34',
   grey1: '#7D8797',
@@ -15,6 +16,7 @@ export const colors = {
   },
   text: {
     primary: mainColors.white1,
+    secondary: mainColors.grey1,
   },
   button: {
     primary: mainColors.orange1,
