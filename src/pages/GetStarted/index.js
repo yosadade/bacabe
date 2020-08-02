@@ -1,22 +1,33 @@
 import React from 'react';
-import {StyleSheet, Text, View} from 'react-native';
+import {StyleSheet, Text, View, StatusBar} from 'react-native';
 import {colors, fonts} from '../../utils';
-import {Button, Gap} from '../../components/atom';
+import {Button, Gap, Logo} from '../../components/atom';
 
 const GetStarted = ({navigation}) => {
   return (
     <View style={styles.page}>
-      <RenderTitle />
+      <RenderStatusBar />
+      <RenderLead />
       <RenderButton navigation={navigation} />
     </View>
   );
 };
 
-const RenderTitle = () => {
+const RenderStatusBar = () => {
+  return (
+    <StatusBar
+      barStyle="light-content"
+      backgroundColor={colors.background.primary}
+      hidden={false}
+    />
+  );
+};
+
+const RenderLead = () => {
   return (
     <View>
-      <Text style={styles.title}>BACABA</Text>
-      <Text style={styles.subTitle}>
+      <Logo />
+      <Text style={styles.title}>
         Baca berita jadi lebih asik, mudah & fleksibel
       </Text>
     </View>
@@ -28,13 +39,13 @@ const RenderButton = ({navigation}) => {
     <View>
       <Button
         title="Get Started"
-        onPress={() => navigation.navigate('Login')}
+        onPress={() => navigation.navigate('Register')}
       />
-      <Gap heigh={16} />
+      <Gap height={16} />
       <Button
         title="Sign In"
         type="secondary"
-        onPress={() => navigation.navigate('Register')}
+        onPress={() => navigation.navigate('Login')}
       />
     </View>
   );
@@ -51,12 +62,6 @@ const styles = StyleSheet.create({
     backgroundColor: colors.background.primary,
   },
   title: {
-    fontSize: 40,
-    fontFamily: fonts.primary[600],
-    color: colors.text.primary,
-    textAlign: 'center',
-  },
-  subTitle: {
     fontSize: 25,
     fontFamily: fonts.primary[600],
     color: colors.text.primary,
