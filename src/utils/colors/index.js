@@ -7,7 +7,9 @@ const mainColors = {
   grey3: '#EDEEF0',
   grey4: '#B1B7C2',
   grey5: '#424451',
+  red1: '#ec1f26',
   orange1: '#EE6B4F',
+  orange2: '#FFA600',
   purple1: '#7D5FFF',
 };
 
@@ -15,6 +17,8 @@ export const colors = {
   background: {
     primary: mainColors.black1,
     secondary: mainColors.grey5,
+    tertiary: mainColors.white1,
+    quaternary: mainColors.red1,
   },
   text: {
     primary: mainColors.white1,
@@ -31,6 +35,7 @@ export const colors = {
     primary: mainColors.white1,
     secondary: mainColors.purple1,
     tertiary: mainColors.grey4,
+    quaternary: mainColors.orange2,
   },
   border: {
     primary: mainColors.grey1,
