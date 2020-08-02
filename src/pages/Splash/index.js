@@ -1,6 +1,7 @@
 import React, {useEffect} from 'react';
 import {StyleSheet, Text, View, StatusBar} from 'react-native';
 import {fonts, colors} from '../../utils';
+import {Logo} from '../../components';
 
 const Splash = ({navigation}) => {
   useEffect(() => {
@@ -22,7 +23,7 @@ const RenderStatusBar = () => {
     <StatusBar
       barStyle="light-content"
       backgroundColor={colors.background.primary}
-      hidden={false}
+      hidden={true}
     />
   );
 };
@@ -30,8 +31,8 @@ const RenderStatusBar = () => {
 const RenderLogo = () => {
   return (
     <View>
-      <Text style={styles.title}>Bacaba</Text>
-      <Text style={styles.subTitle}>Baca berita terupdate terpercaya</Text>
+      <Logo />
+      <Text style={styles.title}>Baca berita asik & fleksibel</Text>
     </View>
   );
 };
@@ -46,12 +47,6 @@ const styles = StyleSheet.create({
     backgroundColor: colors.background.primary,
   },
   title: {
-    fontSize: 70,
-    fontFamily: fonts.primary[800],
-    color: colors.text.primary,
-    textAlign: 'center',
-  },
-  subTitle: {
     fontSize: 20,
     fontFamily: fonts.primary[600],
     color: colors.text.secondary,

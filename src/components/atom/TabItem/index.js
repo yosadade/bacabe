@@ -1,27 +1,41 @@
 import React from 'react';
 import {StyleSheet, Text, TouchableOpacity} from 'react-native';
-import {
-  IconDoctorActive,
-  IconDoctor,
-  IconMessagesActive,
-  IconMessages,
-  IconHospitals,
-  IconHospitalsActive,
-} from '../../../assets';
+import AntDesign from 'react-native-vector-icons/AntDesign';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import {colors, fonts} from '../../../utils';
 
 const TabItem = ({title, active, onPress, onLongPress}) => {
   const Icon = () => {
-    if (title === 'Doctor') {
-      return active ? <IconDoctorActive /> : <IconDoctor />;
+    if (title === 'Home') {
+      return active ? (
+        <AntDesign name="home" size={22} color="black" />
+      ) : (
+        <AntDesign name="home" size={22} color="grey" />
+      );
     }
-    if (title === 'Messages') {
-      return active ? <IconMessagesActive /> : <IconMessages />;
+    if (title === 'Bookmark') {
+      return active ? (
+        <MaterialCommunityIcons
+          name="bookmark-multiple-outline"
+          size={22}
+          color="black"
+        />
+      ) : (
+        <MaterialCommunityIcons
+          name="bookmark-multiple-outline"
+          size={22}
+          color="grey"
+        />
+      );
     }
-    if (title === 'Hospitals') {
-      return active ? <IconHospitalsActive /> : <IconHospitals />;
+    if (title === 'Setting') {
+      return active ? (
+        <AntDesign name="setting" size={22} color="black" />
+      ) : (
+        <AntDesign name="setting" size={22} color="grey" />
+      );
     }
-    return <IconDoctorActive />;
+    return <AntDesign name="setting" size={22} color="black" />;
   };
   return (
     <TouchableOpacity

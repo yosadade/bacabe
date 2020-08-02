@@ -1,15 +1,15 @@
 import React from 'react';
 import {StyleSheet, Text, View, StatusBar} from 'react-native';
 import {colors, fonts} from '../../utils';
-import {Header, Gap, Input, Link, Button} from '../../components';
+import {Gap, Input, Link, Button} from '../../components';
 
-const Login = () => {
+const Login = ({navigation}) => {
   return (
     <View style={styles.page}>
       <RenderStatusBar />
       <RenderLead />
       <RenderInput />
-      <RenderButton />
+      <RenderButton navigation={navigation} />
     </View>
   );
 };
@@ -27,7 +27,7 @@ const RenderStatusBar = () => {
 const RenderLead = () => {
   return (
     <View style={styles.lead}>
-      <Text style={styles.logo}>Bacaba</Text>
+      <Text style={styles.logo}>Bacabaca</Text>
       <View style={styles.wrapTitle}>
         <Text style={styles.title}>Masuk dan mulai membaca</Text>
       </View>
@@ -41,20 +41,27 @@ const RenderInput = () => {
       <Input label="Email Address" />
       <Gap height={24} />
       <Input label="Password" />
-      <Gap height={24} />
-      <Input label="Email Address" />
       <Gap height={10} />
       <Link title="Forgot My Password" size={12} />
     </View>
   );
 };
 
-const RenderButton = () => {
+const RenderButton = ({navigation}) => {
   return (
     <View style={styles.button}>
-      <Button title="Sign In" type="secondary" />
+      <Button
+        title="Sign In"
+        type="secondary"
+        onPress={() => navigation.replace('MainApp')}
+      />
       <Gap height={30} />
-      <Link title="Create New Account" size={16} align="center" />
+      <Link
+        title="Create New Account"
+        size={16}
+        align="center"
+        onPress={() => navigation.navigate('Register')}
+      />
     </View>
   );
 };

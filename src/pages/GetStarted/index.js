@@ -1,7 +1,7 @@
 import React from 'react';
 import {StyleSheet, Text, View, StatusBar} from 'react-native';
 import {colors, fonts} from '../../utils';
-import {Button, Gap} from '../../components/atom';
+import {Button, Gap, Logo} from '../../components/atom';
 
 const GetStarted = ({navigation}) => {
   return (
@@ -26,7 +26,7 @@ const RenderStatusBar = () => {
 const RenderLead = () => {
   return (
     <View>
-      <Text style={styles.logo}>Bacaba</Text>
+      <Logo />
       <Text style={styles.title}>
         Baca berita jadi lebih asik, mudah & fleksibel
       </Text>
@@ -39,13 +39,13 @@ const RenderButton = ({navigation}) => {
     <View>
       <Button
         title="Get Started"
-        onPress={() => navigation.navigate('Login')}
+        onPress={() => navigation.navigate('Register')}
       />
       <Gap height={16} />
       <Button
         title="Sign In"
         type="secondary"
-        onPress={() => navigation.navigate('Register')}
+        onPress={() => navigation.navigate('Login')}
       />
     </View>
   );
@@ -60,12 +60,6 @@ const styles = StyleSheet.create({
     paddingHorizontal: 40,
     justifyContent: 'space-around',
     backgroundColor: colors.background.primary,
-  },
-  logo: {
-    fontSize: 70,
-    fontFamily: fonts.primary[600],
-    color: colors.text.primary,
-    textAlign: 'center',
   },
   title: {
     fontSize: 25,
