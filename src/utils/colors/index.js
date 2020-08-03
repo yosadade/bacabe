@@ -8,6 +8,7 @@ const mainColors = {
   grey4: '#B1B7C2',
   grey5: '#424451',
   red1: '#ec1f26',
+  green1: '#0BCAD4',
   orange1: '#EE6B4F',
   orange2: '#FFA600',
   purple1: '#7D5FFF',
@@ -19,6 +20,7 @@ export const colors = {
     secondary: mainColors.grey5,
     tertiary: mainColors.white1,
     quaternary: mainColors.red1,
+    quinary: mainColors.green1,
   },
   text: {
     primary: mainColors.white1,

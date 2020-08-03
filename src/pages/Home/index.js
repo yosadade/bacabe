@@ -109,9 +109,9 @@ const RenderBanners = () => {
       horizontal
       showsHorizontalScrollIndicator={false}
       data={banners}
-      keyExtractor={(item, index) => item + index.toString()}
+      keyExtractor={(banner, index) => banner + index.toString()}
       contentContainerStyle={styles.banner}
-      renderItem={item => {
+      renderItem={banner => {
         return (
           <TouchableOpacity style={styles.bannerItem}>
             <View style={styles.label}>
@@ -158,8 +158,8 @@ const RenderHotTopics = () => {
         horizontal
         showsHorizontalScrollIndicator={false}
         data={topics}
-        keyExtractor={(item, index) => item + index.toString()}
-        renderItem={item => {
+        keyExtractor={(topic, index) => topic + index.toString()}
+        renderItem={topic => {
           return (
             <TouchableOpacity style={styles.topicItem}>
               <View style={styles.label}>
