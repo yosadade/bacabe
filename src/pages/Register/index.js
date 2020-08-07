@@ -1,16 +1,24 @@
 import React from 'react';
-import {StyleSheet, Text, View, StatusBar} from 'react-native';
+import {
+  StyleSheet,
+  Text,
+  View,
+  StatusBar,
+  ScrollView,
+  ImageBackground,
+} from 'react-native';
 import {colors} from '../../utils';
 import {Header, Input, Gap, Button} from '../../components';
+import {ILNewspaper} from '../../assets';
 
 const Register = ({navigation}) => {
   return (
-    <View style={styles.page}>
+    <ImageBackground source={ILNewspaper} style={styles.page}>
       <RenderStatusBar />
       <RenderHeader navigation={navigation} />
       <RenderInput />
       <RenderButton navigation={navigation} />
-    </View>
+    </ImageBackground>
   );
 };
 
@@ -31,13 +39,15 @@ const RenderHeader = ({navigation}) => {
 const RenderInput = () => {
   return (
     <View style={styles.input}>
-      <Input label="Full Name" />
-      <Gap height={24} />
-      <Input label="Pekerjaan" />
-      <Gap height={24} />
-      <Input label="Email Address" />
-      <Gap height={24} />
-      <Input label="Password" />
+      <ScrollView showsVerticalScrollIndicator={false}>
+        <Input label="Full Name" />
+        <Gap height={24} />
+        <Input label="Email Address" />
+        <Gap height={24} />
+        <Input label="Password" />
+        <Gap height={24} />
+        <Input label="Confirm Password" />
+      </ScrollView>
     </View>
   );
 };
@@ -48,7 +58,7 @@ const RenderButton = ({navigation}) => {
       <Button
         title="Continue"
         type="secondary"
-        onPress={() => navigation.navigate('Login')}
+        onPress={() => navigation.navigate('UploadPhoto')}
       />
     </View>
   );
@@ -59,7 +69,8 @@ export default Register;
 const styles = StyleSheet.create({
   page: {
     flex: 1,
-    backgroundColor: colors.background.primary,
+    height: '100%',
+    width: '100%',
   },
   input: {
     padding: 40,

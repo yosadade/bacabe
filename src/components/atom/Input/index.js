@@ -34,13 +34,15 @@ const styles = StyleSheet.create({
     fontSize: 16,
     color: colors.text.primary,
     marginBottom: 6,
-    fontFamily: fonts.primary[600],
+    fontFamily: fonts.primary[900],
   },
   input: border => ({
+    backgroundColor: colors.background.tertiary,
     padding: 12,
     borderWidth: 1,
     borderRadius: 5,
     borderColor: border,
-    color: colors.text.primary,
+    color: colors.text.quinary,
+    fontFamily: fonts.primary[900],
   }),
 });

@@ -1,11 +1,11 @@
 import React from 'react';
 import {StyleSheet, Text, TouchableOpacity} from 'react-native';
-import {colors, fonts} from '../../../utils';
+import {fonts} from '../../../utils';
 
-const Link = ({title, size, align, onPress}) => {
+const Link = ({title, size, color, align, onPress}) => {
   return (
     <TouchableOpacity onPress={onPress}>
-      <Text style={styles.text(size, align)}>{title}</Text>
+      <Text style={styles.text(size, align, color)}>{title}</Text>
     </TouchableOpacity>
   );
 };
@@ -13,11 +13,11 @@ const Link = ({title, size, align, onPress}) => {
 export default Link;
 
 const styles = StyleSheet.create({
-  text: (size, align) => ({
+  text: (size, align, color) => ({
     fontSize: size,
     textAlign: align,
-    color: colors.text.secondary,
-    fontFamily: fonts.primary[400],
+    color: color,
+    fontFamily: fonts.primary[900],
     textDecorationLine: 'underline',
   }),
 });

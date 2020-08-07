@@ -13,6 +13,7 @@ import {
   GetStarted,
   Register,
   Login,
+  UploadPhoto,
 } from '../pages';
 import {colors, fonts} from '../utils';
 
@@ -78,6 +79,7 @@ const Router = () => {
       <Stack.Screen name="GetStarted" component={GetStarted} />
       <Stack.Screen name="Register" component={Register} />
       <Stack.Screen name="Login" component={Login} />
+      <Stack.Screen name="UploadPhoto" component={UploadPhoto} />
     </Stack.Navigator>
   );
 };

@@ -1,15 +1,19 @@
 import React from 'react';
-import {StyleSheet, Text, View, StatusBar} from 'react-native';
+import {StyleSheet, Text, View, StatusBar, ImageBackground} from 'react-native';
 import {colors, fonts} from '../../utils';
 import {Button, Gap, Logo} from '../../components/atom';
+import {ILNewspaper} from '../../assets';
 
 const GetStarted = ({navigation}) => {
   return (
-    <View style={styles.page}>
-      <RenderStatusBar />
-      <RenderLead />
-      <RenderButton navigation={navigation} />
-    </View>
+    <>
+      <ImageBackground source={ILNewspaper} style={styles.page}>
+        <RenderStatusBar />
+        <RenderLead />
+        <RenderButton navigation={navigation} />
+      </ImageBackground>
+      <View style={styles.overlay} />
+    </>
   );
 };
 
@@ -56,15 +60,14 @@ export default GetStarted;
 const styles = StyleSheet.create({
   page: {
     flex: 1,
-    paddingVertical: 20,
     paddingHorizontal: 40,
+    paddingVertical: 20,
     justifyContent: 'space-around',
-    backgroundColor: colors.background.primary,
   },
   title: {
     fontSize: 25,
-    fontFamily: fonts.primary[600],
-    color: colors.text.primary,
+    fontFamily: fonts.primary[900],
+    color: colors.text.senary,
     marginTop: 90,
   },
 });
