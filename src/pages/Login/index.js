@@ -1,16 +1,17 @@
 import React from 'react';
-import {StyleSheet, Text, View, StatusBar} from 'react-native';
+import {StyleSheet, Text, View, StatusBar, ImageBackground} from 'react-native';
 import {colors, fonts} from '../../utils';
 import {Gap, Input, Link, Button} from '../../components';
+import {ILNewspaper} from '../../assets';
 
 const Login = ({navigation}) => {
   return (
-    <View style={styles.page}>
+    <ImageBackground source={ILNewspaper} style={styles.page}>
       <RenderStatusBar />
       <RenderLead />
       <RenderInput />
       <RenderButton navigation={navigation} />
-    </View>
+    </ImageBackground>
   );
 };
 
@@ -40,9 +41,13 @@ const RenderInput = () => {
     <View style={styles.input}>
       <Input label="Email Address" />
       <Gap height={24} />
-      <Input label="Password" />
+      <Input label="Password" secureTextEntry />
       <Gap height={10} />
-      <Link title="Forgot My Password" size={12} />
+      <Link
+        title="Forgot My Password"
+        size={12}
+        color={colors.text.septenary}
+      />
     </View>
   );
 };
@@ -60,6 +65,7 @@ const RenderButton = ({navigation}) => {
         title="Create New Account"
         size={16}
         align="center"
+        color={colors.text.septenary}
         onPress={() => navigation.navigate('Register')}
       />
     </View>
@@ -71,7 +77,8 @@ export default Login;
 const styles = StyleSheet.create({
   page: {
     flex: 1,
-    backgroundColor: colors.background.primary,
+    width: '100%',
+    height: '100%',
   },
   lead: {
     padding: 40,
@@ -79,7 +86,7 @@ const styles = StyleSheet.create({
   },
   logo: {
     fontSize: 40,
-    fontFamily: fonts.primary[600],
+    fontFamily: fonts.primary[900],
     color: colors.text.primary,
     textAlign: 'center',
   },
@@ -88,7 +95,7 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 20,
-    fontFamily: fonts.primary[600],
+    fontFamily: fonts.primary[900],
     color: colors.text.primary,
     marginTop: 40,
   },

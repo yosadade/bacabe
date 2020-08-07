@@ -1,16 +1,24 @@
 import React from 'react';
-import {StyleSheet, Text, View, StatusBar, ScrollView} from 'react-native';
+import {
+  StyleSheet,
+  Text,
+  View,
+  StatusBar,
+  ScrollView,
+  ImageBackground,
+} from 'react-native';
 import {colors} from '../../utils';
 import {Header, Input, Gap, Button} from '../../components';
+import {ILNewspaper} from '../../assets';
 
 const Register = ({navigation}) => {
   return (
-    <View style={styles.page}>
+    <ImageBackground source={ILNewspaper} style={styles.page}>
       <RenderStatusBar />
       <RenderHeader navigation={navigation} />
       <RenderInput />
       <RenderButton navigation={navigation} />
-    </View>
+    </ImageBackground>
   );
 };
 
@@ -61,7 +69,8 @@ export default Register;
 const styles = StyleSheet.create({
   page: {
     flex: 1,
-    backgroundColor: colors.background.primary,
+    height: '100%',
+    width: '100%',
   },
   input: {
     padding: 40,

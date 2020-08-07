@@ -49,6 +49,6 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 20,
     fontFamily: fonts.primary[600],
-    color: colors.text.secondary,
+    color: colors.text.primary,
   },
 });

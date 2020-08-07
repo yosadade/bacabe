@@ -10,7 +10,9 @@ const UploadPhoto = ({navigation}) => {
       <Header title="Upload Photo" />
       <View style={styles.content}>
         <View style={styles.profile}>
-          <TouchableOpacity style={styles.avatarWrapper}>
+          <TouchableOpacity
+            style={styles.avatarWrapper}
+            onPress={() => navigation.navigate('Register')}>
             <Image source={ILProfile} style={styles.avatar} />
           </TouchableOpacity>
           <Text style={styles.name}>Yosada Dede</Text>
@@ -27,6 +29,7 @@ const UploadPhoto = ({navigation}) => {
             title="Skip for this"
             align="center"
             size={16}
+            color={colors.text.septenary}
             onPress={() => navigation.replace('MainApp')}
           />
         </View>
@@ -85,7 +88,7 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontFamily: fonts.primary.normal,
     textAlign: 'center',
-    color: colors.text.secondary,
+    color: colors.text.septenary,
     marginTop: 4,
   },
 });
