@@ -1,7 +1,7 @@
 import React from 'react';
 import {View, Image, Text, StyleSheet, TouchableOpacity} from 'react-native';
 import {Header, Button, Link, Gap} from '../../components';
-import {ILProfile} from '../../assets';
+import {ILProfile, ILMe} from '../../assets';
 import {colors, fonts} from '../../utils';
 
 const UploadPhoto = ({navigation}) => {
@@ -13,7 +13,7 @@ const UploadPhoto = ({navigation}) => {
           <TouchableOpacity
             style={styles.avatarWrapper}
             onPress={() => navigation.navigate('Register')}>
-            <Image source={ILProfile} style={styles.avatar} />
+            <Image source={ILMe} style={styles.avatar} />
           </TouchableOpacity>
           <Text style={styles.name}>Yosada Dede</Text>
           <Text style={styles.profession}>Yogyakarta</Text>
@@ -58,9 +58,9 @@ const styles = StyleSheet.create({
     marginBottom: 26,
   },
   avatar: {
-    width: 110,
-    height: 110,
-    borderRadius: 110 / 2,
+    width: 115,
+    height: 115,
+    borderRadius: 115 / 2,
   },
   avatarWrapper: {
     width: 130,

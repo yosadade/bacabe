@@ -6,6 +6,9 @@ import GetStarted from './GetStarted';
 import Register from './Register';
 import Login from './Login';
 import UploadPhoto from './UploadPhoto';
+import Banner from './Banner';
+import HotTopic from './HotTopic';
+import LatestNews from './LatestNews';
 
 export {
   Splash,
@@ -16,4 +19,7 @@ export {
   Register,
   Login,
   UploadPhoto,
+  Banner,
+  HotTopic,
+  LatestNews,
 };

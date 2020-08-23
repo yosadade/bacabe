@@ -1,29 +1,28 @@
 import React, {useState} from 'react';
-import Ionicons from 'react-native-vector-icons/Ionicons';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import {
   StyleSheet,
   Text,
   View,
   StatusBar,
-  Image,
   TouchableOpacity,
   FlatList,
   ScrollView,
 } from 'react-native';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 import {colors, fonts} from '../../utils';
-import {ILProfile} from '../../assets';
-import {Gap} from '../../components/atom';
+import {Gap, Label} from '../../components/atom';
+import {HomeProfile} from '../../components';
 
-const Home = () => {
+const Home = ({navigation}) => {
   return (
     <View style={styles.page}>
       <ScrollView showsVerticalScrollIndicator={false}>
         <RenderStatusBar />
         <RenderHeader />
-        <RenderBanners />
-        <RenderHotTopics />
-        <RenderLatestNews />
+        <RenderBanners navigation={navigation} />
+        <RenderHotTopics navigation={navigation} />
+        <RenderLatestNews navigation={navigation} />
       </ScrollView>
     </View>
   );
@@ -42,22 +41,7 @@ const RenderStatusBar = () => {
 const RenderHeader = () => {
   return (
     <View style={styles.header}>
-      <View style={styles.profile}>
-        <View style={styles.avatar}>
-          <Image source={ILProfile} style={styles.avatar} />
-          <View style={styles.star}>
-            <Ionicons
-              name="ios-star"
-              size={15}
-              color={colors.icon.quaternary}
-            />
-          </View>
-        </View>
-        <View>
-          <Text style={styles.name}>Yosada Dede</Text>
-          <Text style={styles.status}>Premium User</Text>
-        </View>
-      </View>
+      <HomeProfile />
       <View style={styles.rightIcon}>
         <TouchableOpacity>
           <Ionicons name="ios-search" size={24} color={colors.icon.tertiary} />
@@ -76,13 +60,13 @@ const RenderHeader = () => {
   );
 };
 
-const RenderBanners = () => {
+const RenderBanners = ({navigation}) => {
   const [banners] = useState([
     {
       id: 1,
       title: 'Politik',
-      desc: '',
       img: 'red',
+      desc: '',
     },
     {
       id: 2,
@@ -103,7 +87,6 @@ const RenderBanners = () => {
       img: 'green',
     },
   ]);
-  console.log(banners);
   return (
     <FlatList
       horizontal
@@ -112,10 +95,13 @@ const RenderBanners = () => {
       keyExtractor={(banner, index) => banner + index.toString()}
       contentContainerStyle={styles.banner}
       renderItem={banner => {
+        console.log(banner.item);
         return (
-          <TouchableOpacity style={styles.bannerItem}>
-            <View style={styles.label}>
-              <Text style={styles.title}>Politik</Text>
+          <TouchableOpacity
+            style={styles.bannerItem}
+            onPress={() => navigation.navigate('Banner')}>
+            <View style={[styles.label, {backgroundColor: banner.item.img}]}>
+              <Text style={styles.title}>{banner.item.title}</Text>
             </View>
           </TouchableOpacity>
         );
@@ -124,31 +110,43 @@ const RenderBanners = () => {
   );
 };
 
-const RenderHotTopics = () => {
+const RenderHotTopics = ({navigation}) => {
   const [topics] = useState([
     {
       id: 1,
-      title: 'Politik',
+      title: 'POLITIK',
       desc: '',
-      img: 'red',
+      label: '#e74c3c',
     },
     {
       id: 2,
-      title: 'Olahraga',
+      title: 'SPORT',
       desc: '',
-      img: 'yellow',
+      label: '#2ecc71',
     },
     {
       id: 3,
-      title: 'Ekonomi',
+      title: 'EKONOMI',
       desc: '',
-      img: 'cyan',
+      label: '#2980b9',
     },
     {
       id: 4,
-      title: 'Kesehatan',
+      title: 'HEALT',
       desc: '',
-      img: 'green',
+      label: '#f1c40f',
+    },
+    {
+      id: 4,
+      title: 'TRAVEL',
+      desc: '',
+      label: '#e67e22',
+    },
+    {
+      id: 4,
+      title: 'FOOD',
+      desc: '',
+      label: '#f1c40f',
     },
   ]);
   return (
@@ -161,10 +159,15 @@ const RenderHotTopics = () => {
         keyExtractor={(topic, index) => topic + index.toString()}
         renderItem={topic => {
           return (
-            <TouchableOpacity style={styles.topicItem}>
-              <View style={styles.label}>
-                <Text style={styles.title}>Creative</Text>
-              </View>
+            <TouchableOpacity
+              style={styles.topicItem}
+              onPress={() => navigation.navigate('HotTopic')}>
+              <Label
+                title={topic.item.title}
+                backgroundColor={colors.background.primary}
+                color={topic.item.label}
+                marginLeft={10}
+              />
             </TouchableOpacity>
           );
         }}
@@ -173,31 +176,43 @@ const RenderHotTopics = () => {
   );
 };
 
-const RenderLatestNews = () => {
+const RenderLatestNews = ({navigation}) => {
   const [news] = useState([
     {
       id: 1,
-      title: 'Politik',
+      title: 'POLITIK',
       desc: '',
-      img: 'red',
+      label: '#e74c3c',
     },
     {
       id: 2,
-      title: 'Olahraga',
+      title: 'SPORT',
       desc: '',
-      img: 'yellow',
+      label: '#2ecc71',
     },
     {
       id: 3,
-      title: 'Ekonomi',
+      title: 'EKONOMI',
       desc: '',
-      img: 'cyan',
+      label: '#2980b9',
     },
     {
       id: 4,
-      title: 'Kesehatan',
+      title: 'HEALT',
       desc: '',
-      img: 'green',
+      label: '#f1c40f',
+    },
+    {
+      id: 4,
+      title: 'TRAVEL',
+      desc: '',
+      label: '#e67e22',
+    },
+    {
+      id: 4,
+      title: 'FOOD',
+      desc: '',
+      label: '#f1c40f',
     },
   ]);
   return (
@@ -209,12 +224,16 @@ const RenderLatestNews = () => {
         keyExtractor={(item, index) => item + index.toString()}
         renderItem={item => {
           return (
-            <TouchableOpacity style={styles.newsItem}>
+            <TouchableOpacity
+              style={styles.newsItem}
+              onPress={() => navigation.navigate('LatestNews')}>
               <View source={null} style={styles.thumbnail} />
-              <View>
-                <View style={styles.label}>
-                  <Text style={styles.title}>Creative</Text>
-                </View>
+              <View style={styles.wrapperDesc}>
+                <Label
+                  backgroundColor="#343641"
+                  title={item.item.title}
+                  color={item.item.label}
+                />
                 <Text style={styles.title}>
                   Design for people of modern era
                 </Text>
@@ -241,38 +260,7 @@ const styles = StyleSheet.create({
     padding: 20,
     paddingBottom: 40,
   },
-  profile: {
-    flexDirection: 'row',
-    alignItems: 'center',
-  },
-  avatar: {
-    width: 50,
-    height: 50,
-    borderRadius: 50 / 2,
-    backgroundColor: colors.background.secondary,
-    marginRight: 15,
-  },
-  star: {
-    position: 'absolute',
-    top: 0,
-    right: -5,
-    height: 18,
-    width: 18,
-    borderRadius: 18,
-    backgroundColor: colors.background.tertiary,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  name: {
-    fontSize: 15,
-    fontFamily: fonts.primary[800],
-    color: colors.text.primary,
-  },
-  status: {
-    fontSize: 12,
-    fontFamily: fonts.primary[800],
-    color: colors.text.quinary,
-  },
+
   rightIcon: {
     flexDirection: 'row',
   },
@@ -309,7 +297,7 @@ const styles = StyleSheet.create({
     backgroundColor: colors.background.quaternary,
   },
   title: {
-    fontSize: 12,
+    fontSize: 10,
     color: colors.text.primary,
     fontFamily: fonts.primary[600],
   },
@@ -347,5 +335,9 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     backgroundColor: colors.background.primary,
     marginRight: 10,
+  },
+  wrapperDesc: {
+    justifyContent: 'flex-start',
+    alignItems: 'flex-start',
   },
 });

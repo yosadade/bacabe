@@ -30,12 +30,12 @@ const TabItem = ({title, active, onPress, onLongPress}) => {
     }
     if (title === 'Setting') {
       return active ? (
-        <AntDesign name="setting" size={22} color="black" />
+        <AntDesign name="setting" size={20} color="black" />
       ) : (
-        <AntDesign name="setting" size={22} color="grey" />
+        <AntDesign name="setting" size={20} color="grey" />
       );
     }
-    return <AntDesign name="setting" size={22} color="black" />;
+    return <AntDesign name="setting" size={20} color="black" />;
   };
   return (
     <TouchableOpacity
