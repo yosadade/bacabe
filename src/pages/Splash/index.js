@@ -1,5 +1,6 @@
 import React, {useEffect} from 'react';
-import {StyleSheet, Text, View, StatusBar} from 'react-native';
+import {Text, View, StatusBar} from 'react-native';
+import EStyleSheet from 'react-native-extended-stylesheet';
 import {fonts, colors} from '../../utils';
 import {Logo} from '../../components';
 
@@ -30,7 +31,7 @@ const RenderStatusBar = () => {
 
 const RenderLogo = () => {
   return (
-    <View>
+    <View style={styles.logo}>
       <Logo />
       <Text style={styles.title}>Baca berita asik & fleksibel</Text>
     </View>
@@ -39,7 +40,7 @@ const RenderLogo = () => {
 
 export default Splash;
 
-const styles = StyleSheet.create({
+const styles = EStyleSheet.create({
   page: {
     flex: 1,
     justifyContent: 'center',
@@ -47,8 +48,12 @@ const styles = StyleSheet.create({
     backgroundColor: colors.background.primary,
   },
   title: {
-    fontSize: 20,
-    fontFamily: fonts.primary[600],
+    fontSize: '17rem',
+    fontFamily: fonts.primary[800],
     color: colors.text.primary,
+  },
+  logo: {
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 });

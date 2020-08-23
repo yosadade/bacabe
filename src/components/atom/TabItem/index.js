@@ -8,34 +8,34 @@ const TabItem = ({title, active, onPress, onLongPress}) => {
   const Icon = () => {
     if (title === 'Home') {
       return active ? (
-        <AntDesign name="home" size={22} color="black" />
+        <AntDesign name="home" size={21} color="black" />
       ) : (
-        <AntDesign name="home" size={22} color="grey" />
+        <AntDesign name="home" size={21} color="grey" />
       );
     }
     if (title === 'Bookmark') {
       return active ? (
         <MaterialCommunityIcons
           name="bookmark-multiple-outline"
-          size={22}
+          size={21}
           color="black"
         />
       ) : (
         <MaterialCommunityIcons
           name="bookmark-multiple-outline"
-          size={22}
+          size={21}
           color="grey"
         />
       );
     }
     if (title === 'Setting') {
       return active ? (
-        <AntDesign name="setting" size={20} color="black" />
+        <AntDesign name="setting" size={19} color="black" />
       ) : (
-        <AntDesign name="setting" size={20} color="grey" />
+        <AntDesign name="setting" size={19} color="grey" />
       );
     }
-    return <AntDesign name="setting" size={20} color="black" />;
+    return <AntDesign name="setting" size={19} color="black" />;
   };
   return (
     <TouchableOpacity

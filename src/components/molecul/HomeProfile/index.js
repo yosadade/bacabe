@@ -1,6 +1,6 @@
 import React from 'react';
-import {StyleSheet, Text, View, Image} from 'react-native';
-
+import {Text, View, Image} from 'react-native';
+import EStyleSheet from 'react-native-extended-stylesheet';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import {colors, fonts} from '../../../utils';
 import {ILMe} from '../../../assets';
@@ -19,7 +19,7 @@ const HomeProfile = () => {
       </View>
       <View>
         <Text style={styles.name}>Yosada Dede</Text>
-        <Text style={styles.status}>Premium User</Text>
+        <Text style={styles.status}>Yogyakarta</Text>
       </View>
     </View>
   );
@@ -27,43 +27,43 @@ const HomeProfile = () => {
 
 export default HomeProfile;
 
-const styles = StyleSheet.create({
+const styles = EStyleSheet.create({
   profile: {
     flexDirection: 'row',
     alignItems: 'center',
   },
   avatar: {
-    width: 50,
-    height: 50,
-    borderRadius: 50 / 2,
+    width: '50rem',
+    height: '50rem',
+    borderRadius: '50rem',
     backgroundColor: colors.background.secondary,
-    marginRight: 15,
+    marginRight: '15rem',
   },
   overlay: {
     position: 'absolute',
-    width: 50,
-    height: 50,
-    borderRadius: 50 / 2,
+    width: '50rem',
+    height: '50rem',
+    borderRadius: '50rem',
     backgroundColor: colors.background.senary,
   },
   star: {
     position: 'absolute',
     top: 0,
-    right: -5,
-    height: 18,
-    width: 18,
-    borderRadius: 18,
+    right: '-5rem',
+    height: '18rem',
+    width: '18rem',
+    borderRadius: '18rem',
     backgroundColor: colors.background.tertiary,
     justifyContent: 'center',
     alignItems: 'center',
   },
   name: {
-    fontSize: 15,
+    fontSize: '15rem',
     fontFamily: fonts.primary[800],
     color: colors.text.primary,
   },
   status: {
-    fontSize: 12,
+    fontSize: '12rem',
     fontFamily: fonts.primary[800],
     color: colors.text.quinary,
   },

@@ -1,5 +1,6 @@
 import React from 'react';
-import {StyleSheet, Text, View} from 'react-native';
+import {Text, View} from 'react-native';
+import EStyleSheet from 'react-native-extended-stylesheet';
 import {colors, fonts} from '../../../utils';
 
 const Label = ({title, backgroundColor, color, marginLeft}) => {
@@ -16,18 +17,18 @@ const Label = ({title, backgroundColor, color, marginLeft}) => {
 
 export default Label;
 
-const styles = StyleSheet.create({
+const styles = EStyleSheet.create({
   container: {
-    height: 20,
-    width: 60,
-    marginVertical: 10,
+    height: '20rem',
+    width: '60rem',
+    marginVertical: '10rem',
     justifyContent: 'center',
     alignItems: 'center',
-    borderRadius: 5,
+    borderRadius: '5rem',
     backgroundColor: colors.background.quaternary,
   },
   title: {
-    fontSize: 8,
-    fontFamily: fonts.primary[600],
+    fontSize: '8rem',
+    fontFamily: fonts.primary[800],
   },
 });

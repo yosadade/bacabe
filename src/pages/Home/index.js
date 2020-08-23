@@ -1,14 +1,16 @@
 import React, {useState} from 'react';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import {
-  StyleSheet,
   Text,
   View,
   StatusBar,
   TouchableOpacity,
   FlatList,
   ScrollView,
+  Image,
 } from 'react-native';
+import EStyleSheet from 'react-native-extended-stylesheet';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import {colors, fonts} from '../../utils';
 import {Gap, Label} from '../../components/atom';
@@ -180,38 +182,52 @@ const RenderLatestNews = ({navigation}) => {
   const [news] = useState([
     {
       id: 1,
+      uri:
+        'https://cdn2.tstatic.net/tribunnews/foto/bank/images/mantan-panglima-tni_20180525_202358.jpg',
       title: 'POLITIK',
-      desc: '',
+      desc:
+        'Gatot Nurmantyo Akan Keluar dari KAMI Jika Berubah Jadi Partai Politik',
       label: '#e74c3c',
     },
     {
       id: 2,
+      uri:
+        'https://img.okezone.com/content/2020/08/23/261/2265976/limpahan-hadiah-uang-menanti-juara-liga-champions-2019-2020-4msoHkVUu6.jpg',
       title: 'SPORT',
-      desc: '',
+      desc: 'Limpahan Hadiah Uang Menanti Juara Liga Champions 2019-2020',
       label: '#2ecc71',
     },
     {
       id: 3,
+      uri:
+        'https://akcdn.detik.net.id/visual/2020/08/14/nambah-lagi-negara-resesi-malaysia_169.jpeg?w=715&q=90',
       title: 'EKONOMI',
-      desc: '',
+      desc: '4 Negara Tetangga yang Masuk Jurang Resesi',
       label: '#2980b9',
     },
     {
       id: 4,
+      uri:
+        'https://cdn1-production-images-kly.akamaized.net/-35VaJE7UGxAPYg2bvDU3alMleA=/640x360/smart/filters:quality(75):strip_icc():format(webp)/kly-media-production/medias/3161004/original/046601300_1592975253-20200624-Penyemprotan-Disinfektan-di-Pasar-Anyar-Jakarta-2.jpg',
       title: 'HEALT',
-      desc: '',
+      desc: 'Kenapa Kasus COVID-19 di Indonesia Tak Kunjung Melandai?',
       label: '#f1c40f',
     },
     {
-      id: 4,
+      id: 5,
+      uri:
+        'https://cdn2.tstatic.net/travel/foto/bank/images/heha-sky-view-kembali-melayani-pengunjung.jpg',
       title: 'TRAVEL',
-      desc: '',
+      desc: 'Fasilitas dan Harga Tiket Masuk Heha Sky View',
       label: '#e67e22',
     },
     {
-      id: 4,
+      id: 6,
+      uri:
+        'https://petualang.travelingyuk.com//uploads/2018/08/Kuah-mie-yang-bikin-ngiler.jpg',
       title: 'FOOD',
-      desc: '',
+      desc:
+        'Mie Ayam Bu Tumini, Kuliner Jogja dengan Porsi Jumbo dan Kuah Melimpah',
       label: '#f1c40f',
     },
   ]);
@@ -223,21 +239,32 @@ const RenderLatestNews = ({navigation}) => {
         data={news}
         keyExtractor={(item, index) => item + index.toString()}
         renderItem={item => {
+          console.log(item.item.uri);
           return (
             <TouchableOpacity
               style={styles.newsItem}
               onPress={() => navigation.navigate('LatestNews')}>
-              <View source={null} style={styles.thumbnail} />
+              <View style={styles.thumbnail}>
+                <Image source={{uri: item.item.uri}} style={styles.thumbnail} />
+                <View style={styles.overlay} />
+              </View>
               <View style={styles.wrapperDesc}>
                 <Label
                   backgroundColor="#343641"
                   title={item.item.title}
                   color={item.item.label}
                 />
-                <Text style={styles.title}>
-                  Design for people of modern era
+                <Text numberOfLines={2} style={styles.title}>
+                  {item.item.desc}
                 </Text>
               </View>
+              <TouchableOpacity style={styles.newsItemIcon}>
+                <MaterialCommunityIcons
+                  name="bookmark-multiple-outline"
+                  size={13}
+                  color={colors.icon.tertiary}
+                />
+              </TouchableOpacity>
             </TouchableOpacity>
           );
         }}
@@ -248,7 +275,7 @@ const RenderLatestNews = ({navigation}) => {
 
 export default Home;
 
-const styles = StyleSheet.create({
+const styles = EStyleSheet.create({
   page: {
     flex: 1,
     backgroundColor: colors.background.primary,
@@ -257,8 +284,8 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    padding: 20,
-    paddingBottom: 40,
+    padding: '20rem',
+    paddingBottom: '40rem',
   },
 
   rightIcon: {
@@ -270,74 +297,85 @@ const styles = StyleSheet.create({
     right: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    width: 10,
-    height: 10,
-    borderRadius: 10,
+    width: '10rem',
+    height: '10rem',
+    borderRadius: '10rem',
     backgroundColor: colors.background.quaternary,
   },
   banner: {
-    paddingHorizontal: 20,
-    paddingBottom: 20,
+    paddingHorizontal: '20rem',
+    paddingBottom: '20rem',
   },
   bannerItem: {
-    width: 200,
-    height: 150,
-    borderRadius: 10,
+    width: '200rem',
+    height: '150rem',
+    borderRadius: '10rem',
     backgroundColor: colors.background.secondary,
-    marginRight: 10,
+    marginRight: '10rem',
   },
   label: {
-    height: 20,
-    width: 60,
-    marginHorizontal: 10,
-    marginVertical: 10,
+    height: '20rem',
+    width: '60rem',
+    marginHorizontal: '10rem',
+    marginVertical: '10rem',
     justifyContent: 'center',
     alignItems: 'center',
-    borderRadius: 5,
+    borderRadius: '5rem',
     backgroundColor: colors.background.quaternary,
   },
   title: {
-    fontSize: 10,
+    fontSize: '9rem',
     color: colors.text.primary,
     fontFamily: fonts.primary[600],
   },
   topic: {
-    paddingLeft: 20,
-    paddingBottom: 20,
+    paddingLeft: '20rem',
+    paddingBottom: '20rem',
   },
   titleTopic: {
-    fontSize: 20,
+    fontSize: '20rem',
     color: colors.text.primary,
     fontFamily: fonts.primary[800],
-    paddingBottom: 10,
+    paddingBottom: '10rem',
   },
   topicItem: {
-    height: 150,
-    width: 105,
-    borderRadius: 10,
+    height: '150rem',
+    width: '105rem',
+    borderRadius: '10rem',
     backgroundColor: colors.background.secondary,
-    marginRight: 10,
+    marginRight: '10rem',
   },
   latestNews: {
-    paddingHorizontal: 20,
+    paddingHorizontal: '20rem',
   },
   newsItem: {
-    padding: 10,
-    borderRadius: 10,
-    marginBottom: 10,
+    padding: '10rem',
+    borderRadius: '10rem',
+    marginBottom: '10rem',
     flexDirection: 'row',
     justifyContent: 'flex-start',
     backgroundColor: colors.background.secondary,
   },
+  newsItemIcon: {
+    marginLeft: 'auto',
+  },
   thumbnail: {
-    width: 70,
-    height: 70,
-    borderRadius: 10,
+    width: '70rem',
+    height: '70rem',
+    borderRadius: '10rem',
     backgroundColor: colors.background.primary,
-    marginRight: 10,
+    marginRight: '10rem',
+  },
+  overlay: {
+    position: 'absolute',
+    width: '70rem',
+    height: '70rem',
+    borderRadius: '10rem',
+    backgroundColor: 'rgba(0, 0, 0, 0)',
+    marginRight: '10rem',
   },
   wrapperDesc: {
-    justifyContent: 'flex-start',
-    alignItems: 'flex-start',
+    alignSelf: 'flex-start',
+    paddingRight: 90,
   },
 });

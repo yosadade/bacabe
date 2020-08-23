@@ -14,7 +14,7 @@ const Input = ({label, value, secureTextEntry}) => {
   };
 
   return (
-    <View>
+    <View style={styles.container}>
       <Text style={styles.label}>{label}</Text>
       <TextInput
         style={styles.input(border)}
@@ -30,6 +30,9 @@ const Input = ({label, value, secureTextEntry}) => {
 export default Input;
 
 const styles = StyleSheet.create({
+  container: {
+    marginBottom: -10,
+  },
   label: {
     fontSize: 16,
     color: colors.text.primary,

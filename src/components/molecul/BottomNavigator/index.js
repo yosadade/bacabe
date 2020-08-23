@@ -1,5 +1,6 @@
 import React from 'react';
-import {StyleSheet, Text, View} from 'react-native';
+import {View} from 'react-native';
+import EStyleSheet from 'react-native-extended-stylesheet';
 import {TabItem} from '../../atom';
 
 const BottomNavigator = (state, descriptors, navigation) => {
@@ -51,12 +52,12 @@ const BottomNavigator = (state, descriptors, navigation) => {
 
 export default BottomNavigator;
 
-const styles = StyleSheet.create({
+const styles = EStyleSheet.create({
   container: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    paddingHorizontal: 53,
-    paddingVertical: 12,
+    paddingHorizontal: '53rem',
+    paddingVertical: '12rem',
     backgroundColor: '#FFFFFF',
   },
 });
