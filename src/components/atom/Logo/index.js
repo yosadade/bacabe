@@ -1,5 +1,6 @@
 import React from 'react';
-import {StyleSheet, Text, View} from 'react-native';
+import {Text, View} from 'react-native';
+import EStyleSheet from 'react-native-extended-stylesheet';
 import {fonts, colors} from '../../../utils';
 
 const Logo = () => {
@@ -15,26 +16,26 @@ const Logo = () => {
 
 export default Logo;
 
-const styles = StyleSheet.create({
+const styles = EStyleSheet.create({
   wrapLogo: {
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
   },
   logoPurple: {
-    fontSize: 60,
+    fontSize: '60rem',
     fontFamily: fonts.primary[800],
     color: colors.text.tertiary,
     textAlign: 'center',
   },
   logoWhite: {
-    fontSize: 60,
+    fontSize: '60rem',
     fontFamily: fonts.primary[800],
     color: colors.text.primary,
     textAlign: 'center',
   },
   logoOrange: {
-    fontSize: 60,
+    fontSize: '60rem',
     fontFamily: fonts.primary[800],
     color: colors.text.quaternary,
     textAlign: 'center',

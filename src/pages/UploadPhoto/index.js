@@ -1,7 +1,8 @@
 import React from 'react';
-import {View, Image, Text, StyleSheet, TouchableOpacity} from 'react-native';
+import {View, Image, Text, TouchableOpacity} from 'react-native';
+import EStyleSheet from 'react-native-extended-stylesheet';
 import {Header, Button, Link, Gap} from '../../components';
-import {ILProfile} from '../../assets';
+import {ILMe} from '../../assets';
 import {colors, fonts} from '../../utils';
 
 const UploadPhoto = ({navigation}) => {
@@ -13,10 +14,10 @@ const UploadPhoto = ({navigation}) => {
           <TouchableOpacity
             style={styles.avatarWrapper}
             onPress={() => navigation.navigate('Register')}>
-            <Image source={ILProfile} style={styles.avatar} />
+            <Image source={ILMe} style={styles.avatar} />
           </TouchableOpacity>
           <Text style={styles.name}>Yosada Dede</Text>
-          <Text style={styles.profession}>Yogyakarta</Text>
+          <Text style={styles.profession}>Yogyakarta, Indonesia</Text>
         </View>
         <View>
           <Button
@@ -24,7 +25,7 @@ const UploadPhoto = ({navigation}) => {
             type="secondary"
             onPress={() => navigation.replace('MainApp')}
           />
-          <Gap height={30} />
+          <Gap height={20} />
           <Link
             title="Skip for this"
             align="center"
@@ -40,14 +41,14 @@ const UploadPhoto = ({navigation}) => {
 
 export default UploadPhoto;
 
-const styles = StyleSheet.create({
+const styles = EStyleSheet.create({
   page: {
     flex: 1,
     backgroundColor: colors.background.primary,
   },
   content: {
-    paddingHorizontal: 40,
-    paddingBottom: 64,
+    paddingHorizontal: '40rem',
+    paddingBottom: '64rem',
     flex: 1,
     justifyContent: 'space-between',
   },
@@ -55,40 +56,40 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     flex: 1,
     justifyContent: 'center',
-    marginBottom: 26,
+    marginBottom: '26rem',
   },
   avatar: {
-    width: 110,
-    height: 110,
-    borderRadius: 110 / 2,
+    width: '115rem',
+    height: '115rem',
+    borderRadius: '115rem',
   },
   avatarWrapper: {
-    width: 130,
-    height: 130,
+    width: '130rem',
+    height: '130rem',
     borderWidth: 1,
     borderColor: colors.border.primary,
-    borderRadius: 130 / 2,
+    borderRadius: '130rem',
     alignItems: 'center',
     justifyContent: 'center',
-    marginBottom: 10,
+    marginBottom: '10rem',
   },
   addPhoto: {
     position: 'absolute',
-    bottom: 8,
-    right: 6,
+    bottom: '8rem',
+    right: '6rem',
   },
   name: {
-    fontSize: 24,
+    fontSize: '24rem',
     color: colors.text.primary,
     fontFamily: fonts.primary[600],
     textAlign: 'center',
-    marginTop: 10,
+    marginTop: '10rem',
   },
   profession: {
-    fontSize: 18,
+    fontSize: '18rem',
     fontFamily: fonts.primary.normal,
     textAlign: 'center',
     color: colors.text.septenary,
-    marginTop: 4,
+    marginTop: '4rem',
   },
 });

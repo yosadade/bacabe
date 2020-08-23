@@ -1,7 +1,7 @@
 import React from 'react';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-import Ionicons from 'react-native-vector-icons/Ionicons';
-import Entypo from 'react-native-vector-icons/Entypo';
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 
 import {createStackNavigator, TransitionPresets} from '@react-navigation/stack';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
@@ -14,6 +14,9 @@ import {
   Register,
   Login,
   UploadPhoto,
+  Banner,
+  HotTopic,
+  LatestNews,
 } from '../pages';
 import {colors, fonts} from '../utils';
 
@@ -27,7 +30,7 @@ const MainApp = () => {
         activeTintColor: colors.icon.secondary,
         style: {
           height: 60,
-          backgroundColor: colors.background.secondary,
+          backgroundColor: colors.background.primary,
           borderTopWidth: 0,
         },
         labelStyle: {
@@ -41,22 +44,24 @@ const MainApp = () => {
       }}
       screenOptions={({route}) => ({
         tabBarIcon: ({color, size}) => {
-          if (route.name === 'Home') {
+          if (route.name === 'News') {
             return (
               <MaterialCommunityIcons
-                name="code-greater-than-or-equal"
+                name="newspaper"
                 size={size}
                 color={color}
               />
             );
           } else if (route.name === 'Bookmark') {
-            return <Ionicons name="ios-add-circle" size={size} color={color} />;
+            return <MaterialIcons name="book" size={size} color={color} />;
           } else if (route.name === 'Setting') {
-            return <Entypo name="code" size={size} color={color} />;
+            return (
+              <FontAwesome5 name="user-circle" size={size} color={color} />
+            );
           }
         },
       })}>
-      <Tab.Screen name="Home" component={Home} />
+      <Tab.Screen name="News" component={Home} />
       <Tab.Screen name="Bookmark" component={Bookmark} />
       <Tab.Screen name="Setting" component={Setting} />
     </Tab.Navigator>
@@ -80,6 +85,9 @@ const Router = () => {
       <Stack.Screen name="Register" component={Register} />
       <Stack.Screen name="Login" component={Login} />
       <Stack.Screen name="UploadPhoto" component={UploadPhoto} />
+      <Stack.Screen name="Banner" component={Banner} />
+      <Stack.Screen name="HotTopic" component={HotTopic} />
+      <Stack.Screen name="LatestNews" component={LatestNews} />
     </Stack.Navigator>
   );
 };
